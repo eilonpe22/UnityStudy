@@ -19,7 +19,13 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(cam.position, cam.forward, out hit, Range))
         {
-            Debug.Log("Hit");
+            if(hit.collider.GetComponent<Damgeables>() != null)
+            {
+                hit.collider.GetComponent<Damgeables>().TakeDamage(damage);
+                Debug.Log("Hit");
+            }
+           
         }
     }
+
 }
